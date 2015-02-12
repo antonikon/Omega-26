@@ -14,11 +14,18 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    world.cpp
+    world.cpp \
+    tank.cpp \
+    element.cpp
 
 HEADERS  += mainwindow.h \
-    world.h
+    world.h \
+    tank.h \
+    types.h \
+    element.h
 
 FORMS    += mainwindow.ui
 
 LIBS += -lbox2d
+
+QMAKE_CXXFLAGS += -std=c++0x

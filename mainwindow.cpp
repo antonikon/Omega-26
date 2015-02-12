@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "tank.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
@@ -27,6 +29,16 @@ void MainWindow::timerEvent(QTimerEvent *) {
         World->GetTank(0)->Turn(-1);
     } else if (KeyMap[Qt::Key_D]) {
         World->GetTank(0)->Turn(1);
+    }
+    if (KeyMap[Qt::Key_Q]) {
+        World->GetTank(0)->TurnGun(-1);
+    } else if (KeyMap[Qt::Key_E]) {
+        World->GetTank(0)->TurnGun(1);
+    } else {
+        World->GetTank(0)->TurnGun(0);
+    }
+    if (KeyMap[Qt::Key_Space]) {
+        World->GetTank(0)->Fire();
     }
     World->Update();
     update();
